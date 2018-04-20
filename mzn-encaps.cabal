@@ -1,0 +1,75 @@
+name:                mzn-encaps
+version:             0.1.0.0
+synopsis:            
+description:         Please see README.md
+homepage:            https://github.com/githubuser/mzn-encaps#readme
+license:             UnspecifiedLicence
+license-file:        LICENSE
+author:              Alexander Ek
+maintainer:          example@example.com
+copyright:           2017 Alexander Ek
+category:            
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Toolkit
+  other-modules:       Tokens
+                     , CST
+                     , CST.Utils
+                     , FMD
+                     , FMD.Extra
+                     , Translator
+                     , Translator.Parser
+                     , Translator.Lexer
+                     , Encapsulator
+                     , Encapsulator.Common
+                     , Encapsulator.Extractor
+                     , Encapsulator.Ranker
+                     , Encapsulator.Substitutor
+                     , Visualiser
+                     , Output
+  build-depends:       base >= 4.7 && < 5
+                     , containers
+                     , parsec
+                     , fgl
+                     , graphviz
+                     , text
+  default-language:    Haskell2010
+
+executable mzn-encaps
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , mzn-encaps
+  default-language:    Haskell2010
+
+test-suite mzn-encaps-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+                     , src
+  other-modules:       Tokens
+                     , CST
+                     , CST.Utils
+                     , FMD
+                     , FMD.Extra
+                     , Translator
+                     , Translator.Lexer
+                     , Translator.Parser
+                     , Encapsulator.Ranker
+                     , Encapsulator.Common
+                     , Encapsulator.Substitutor
+  main-is:             Spec.hs
+  build-depends:       base
+                     , mzn-encaps
+                     , QuickCheck
+                     , parsec
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: TODO: https://github.com/githubuser/mzn-encaps
