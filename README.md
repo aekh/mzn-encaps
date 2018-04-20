@@ -1,5 +1,11 @@
 # MiniZinc Analysis Toolkit
 
+## What it does
+
+1. Identifies submodels of a MiniZinc model.
+2. Finds a best submodel according to heuristics selected by the user.
+3. Automatically encapsulates said submodel within a predicate definition along with an presolve annotation using the auto-tabling tool by Jip J. Dekker (https://github.com/Dekker1/libminizinc), creating a new MiniZinc model.
+
 ## Prerequisites
 
 * Stack (haskell-stack)
